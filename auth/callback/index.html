@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TikTok Authorization</title>
+</head>
+<body>
+  <h2>TikTok Authorization</h2>
+  <p id="status">Checking authorization...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const error = params.get("error");
+
+    if (code) {
+      document.getElementById("status").innerText =
+        "TikTok authorization successful.";
+    } else if (error) {
+      document.getElementById("status").innerText =
+        "TikTok authorization error: " + error;
+    } else {
+      document.getElementById("status").innerText =
+        "Waiting for TikTok authorization.";
+    }
+  </script>
+</body>
+</html>
